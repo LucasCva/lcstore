@@ -16,8 +16,9 @@ class _Login_PageState extends State<Login_Page> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: const Color.fromRGBO(235, 235, 235, 1),
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
         body: SingleChildScrollView(
+          physics: const NeverScrollableScrollPhysics(),
           child: ConstrainedBox(
             constraints: BoxConstraints(
               maxHeight: MediaQuery.of(context).size.height,
@@ -62,12 +63,13 @@ class _Login_PageState extends State<Login_Page> {
                   ),
 
                   //text fild email
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 25),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 25),
                     child: TextField(
-                      style: TextStyle(fontSize: 20),
+                      onTapOutside: (event) => FocusScope.of(context).unfocus(),
+                      style: const TextStyle(fontSize: 20),
                       decoration:
-                          InputDecoration(prefixIcon: Icon(Icons.email)),
+                          const InputDecoration(prefixIcon: Icon(Icons.email)),
                     ),
                   ),
 
@@ -79,6 +81,7 @@ class _Login_PageState extends State<Login_Page> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 25),
                     child: TextField(
+                      onTapOutside: (event) => FocusScope.of(context).unfocus(),
                       obscureText: _passwordIsVisible,
                       style: const TextStyle(fontSize: 20),
                       decoration: InputDecoration(
