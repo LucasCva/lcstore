@@ -22,151 +22,149 @@ class _RegisterPageState extends State<RegisterPage> {
             constraints: BoxConstraints(
               maxHeight: MediaQuery.of(context).size.height,
             ),
-            child: Center(
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 60,
+                ),
 
-                  //logo
-                  const Icon(
-                    Icons.store,
-                    size: 150,
-                    color: Color.fromRGBO(0, 0, 0, 1),
+                //text "Login to your account"
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                  child: Text(
+                    "Create your \nAccount",
+                    style: GoogleFonts.ptSans(
+                        textStyle: const TextStyle(
+                            fontWeight: FontWeight.w900,
+                            fontSize: 50,
+                            color: Color.fromRGBO(0, 0, 0, 1)),
+                        letterSpacing: 3.0),
                   ),
+                ),
 
-                  const SizedBox(
-                    height: 60,
-                  ),
-
-                  //text "create account"
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 25),
-                        child: Text(
-                          "Create account",
-                          style: GoogleFonts.workSans(
-                              textStyle: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 30,
-                                  color: Color.fromRGBO(0, 0, 0, 1)),
-                              letterSpacing: 1.0),
+                const SizedBox(
+                  height: 40,
+                ),
+                //textfield campo nome
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: TextField(
+                    onTapOutside: (event) => FocusScope.of(context).unfocus(),
+                    style: const TextStyle(fontSize: 20),
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
                         ),
-                      ),
-                    ],
+                        prefixIcon: Icon(Icons.person),
+                        hintText: "Name"),
                   ),
+                ),
 
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  //textfield campo nome
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: TextField(
-                      onTapOutside: (event) => FocusScope.of(context).unfocus(),
-                      style: const TextStyle(fontSize: 20),
-                      decoration: const InputDecoration(
-                          prefixIcon: Icon(Icons.person), hintText: "Name"),
-                    ),
-                  ),
+                const SizedBox(
+                  height: 20,
+                ),
 
-                  const SizedBox(
-                    height: 20,
-                  ),
-
-                  //textfield campo email
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: TextField(
-                      onTapOutside: (event) => FocusScope.of(context).unfocus(),
-                      style: const TextStyle(fontSize: 20),
-                      decoration: const InputDecoration(
-                          prefixIcon: Icon(Icons.email), hintText: "Email"),
-                    ),
-                  ),
-
-                  const SizedBox(
-                    height: 20,
-                  ),
-
-                  //textfield campo senha
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: TextField(
-                      onTapOutside: (event) => FocusScope.of(context).unfocus(),
-                      obscureText: _passwordIsVisible,
-                      style: const TextStyle(fontSize: 20),
-                      decoration: InputDecoration(
-                        hintText: "Password",
-                        prefixIcon: const Icon(Icons.key),
-                        suffixIcon: GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _passwordIsVisible = !_passwordIsVisible;
-                            });
-                          },
-                          child: Icon(_passwordIsVisible
-                              ? Icons.visibility_off
-                              : Icons.visibility),
+                //textfield campo email
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: TextField(
+                    onTapOutside: (event) => FocusScope.of(context).unfocus(),
+                    style: const TextStyle(fontSize: 20),
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
                         ),
+                        prefixIcon: const Icon(Icons.email),
+                        hintText: "Email"),
+                  ),
+                ),
+
+                const SizedBox(
+                  height: 20,
+                ),
+
+                //textfield campo senha
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: TextField(
+                    onTapOutside: (event) => FocusScope.of(context).unfocus(),
+                    obscureText: _passwordIsVisible,
+                    style: const TextStyle(fontSize: 20),
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
                       ),
-                    ),
-                  ),
-
-                  const SizedBox(
-                    height: 40,
-                  ),
-
-                  //botao sing up
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 18,
-                    ),
-                    margin: const EdgeInsets.symmetric(horizontal: 20),
-                    decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 0, 0, 0),
-                        borderRadius: BorderRadius.circular(15)),
-                    width: double.infinity,
-                    child: const Center(
-                        child: Text(
-                      "Sign up",
-                      style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                    )),
-                  ),
-
-                  const SizedBox(
-                    height: 30,
-                  ),
-
-                  //texto Already have account? sign in
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        "Already have account?",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      GestureDetector(
+                      hintText: "Password",
+                      prefixIcon: const Icon(Icons.key),
+                      suffixIcon: GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Login_Page()));
+                          setState(() {
+                            _passwordIsVisible = !_passwordIsVisible;
+                          });
                         },
-                        child: const Text(
-                          " Sign in",
-                          style: TextStyle(fontSize: 18, color: Colors.blue),
-                        ),
+                        child: Icon(_passwordIsVisible
+                            ? Icons.visibility_off
+                            : Icons.visibility),
                       ),
-                    ],
+                    ),
                   ),
-                ],
-              ),
+                ),
+
+                const SizedBox(
+                  height: 40,
+                ),
+
+                //botao sing up
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: 18,
+                  ),
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 0, 0, 0),
+                      borderRadius: BorderRadius.circular(15)),
+                  width: double.infinity,
+                  child: const Center(
+                      child: Text(
+                    "Sign up",
+                    style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold),
+                  )),
+                ),
+
+                const SizedBox(
+                  height: 30,
+                ),
+
+                //texto Already have account? sign in
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Already have account?",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Login_Page()));
+                      },
+                      child: const Text(
+                        " Sign in",
+                        style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.blue,
+                            fontWeight: FontWeight.w700),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
