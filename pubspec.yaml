@@ -22,3 +22,4 @@ flutter:
   assets:
     - lib/imagens/googleLogo.png
     - lib/imagens/imagemInicial.png
+    - lib/imagens/imagemTenis.png
